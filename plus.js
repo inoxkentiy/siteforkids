@@ -9,6 +9,14 @@ let rndnm = randomIntFromInterval(13, 30)
 let rndnm2 = randomIntFromInterval(5, 25)
 let hi = rndInt + rndInt2
 
+let solArray = JSON.parse(localStorage.getItem("solArray"))
+if (solArray === null) {
+    solArray = []
+}
+
+let counter1 = JSON.parse(localStorage.getItem("counter1"))
+let counter2 = JSON.parse(localStorage.getItem("counter2"))
+// console.log(fans)
 firstnum = $('#firstnum')
 secnum = $('#secondnum')
 rovno = $('#rovno')
@@ -23,7 +31,17 @@ rovno.append(`=`)
 fans.append(`<h2>${hi}</h2>`)
 sans.append(`<h2>${rndnm}</h2>`)
 thans.append(`<h2>${rndnm2}</h2>`)
-console.log(hi)
+// console.log(hi)
+
+solArray.push(`${rndInt}+${rndInt2}=${hi}`)
+if (hi - rndInt + rndInt2 == 0) {
+    console.log("Right")
+} else {
+    console.log("Wrong")
+}
+console.log(solArray)
+solArray = localStorage.setItem("solArray", JSON.stringify(solArray))
+// console.log(solArray)
 function lola() {
     Swal.fire({
         title: 'Молодец!',
@@ -31,12 +49,16 @@ function lola() {
         imageUrl: 'http://masha-imedved.ru/uploads/posts/2013-09/1379419159_5-vesna.jpg',
         imageWidth: 400,
         imageHeight: 200,
-        imageAlt: 'Custom image'
+        imageAlt: 'Custom image',
+
+
     }
     );
     setTimeout(function () {
         location.reload();
-    }, 4000);
+    }, 2500);
+    counter1++;
+    counter1 = localStorage.setItem("counter1", JSON.stringify(counter1))
 }
 function nelola() {
     Swal.fire({
@@ -47,4 +69,6 @@ function nelola() {
         imageHeight: 200,
         imageAlt: 'Custom image'
     });
+    counter2++;
+    counter2 = localStorage.setItem("counter2", JSON.stringify(counter2))
 }
