@@ -1,5 +1,5 @@
 
-function randomIntFromInterval(min, max) { // min and max included 
+function randomIntFromInterval(min, max) {
     return Math.floor(Math.random() * (max - min + 1) + min)
 }
 let rndInt = randomIntFromInterval(0, 15)
@@ -9,14 +9,19 @@ let rndnm = randomIntFromInterval(13, 30)
 let rndnm2 = randomIntFromInterval(5, 25)
 let hi = rndInt + rndInt2
 
-let solArray = JSON.parse(localStorage.getItem("solArray"))
+solArray = JSON.parse(localStorage.getItem("solArray"))
 if (solArray === null) {
     solArray = []
 }
+solArray2 = JSON.parse(localStorage.getItem("solArray2"))
+if (solArray2 === null) {
+    solArray2 = []
+}
 
-let counter1 = JSON.parse(localStorage.getItem("counter1"))
-let counter2 = JSON.parse(localStorage.getItem("counter2"))
-// console.log(fans)
+
+counter1 = JSON.parse(localStorage.getItem("counter1"))
+counter2 = JSON.parse(localStorage.getItem("counter2"))
+
 firstnum = $('#firstnum')
 secnum = $('#secondnum')
 rovno = $('#rovno')
@@ -31,17 +36,7 @@ rovno.append(`=`)
 fans.append(`<h2>${hi}</h2>`)
 sans.append(`<h2>${rndnm}</h2>`)
 thans.append(`<h2>${rndnm2}</h2>`)
-// console.log(hi)
 
-solArray.push(`${rndInt}+${rndInt2}=${hi}`)
-if (hi - rndInt + rndInt2 == 0) {
-    console.log("Right")
-} else {
-    console.log("Wrong")
-}
-console.log(solArray)
-solArray = localStorage.setItem("solArray", JSON.stringify(solArray))
-// console.log(solArray)
 function lola() {
     Swal.fire({
         title: 'Молодец!',
@@ -56,10 +51,14 @@ function lola() {
     );
     setTimeout(function () {
         location.reload();
-    }, 2500);
+    }, 1500);
+
+    solArray.push(`${rndInt}+${rndInt2}=${hi}`)
     counter1++;
     counter1 = localStorage.setItem("counter1", JSON.stringify(counter1))
+    solArray = localStorage.setItem("solArray", JSON.stringify(solArray))
 }
+
 function nelola() {
     Swal.fire({
         title: 'Ошибка!',
@@ -69,6 +68,13 @@ function nelola() {
         imageHeight: 200,
         imageAlt: 'Custom image'
     });
+    setTimeout(function () {
+        location.reload();
+    }, 1500);
+    solArray2.push(`${rndInt}+${rndInt2}=${rndnm}`)
     counter2++;
     counter2 = localStorage.setItem("counter2", JSON.stringify(counter2))
+    console.log(solArray2)
+    solArray2 = localStorage.setItem("solArray2", JSON.stringify(solArray2))
+
 }
