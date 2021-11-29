@@ -1,4 +1,8 @@
-#resultBlock {
-  /* width: 50%;
-  float: left; */
+a{
+  text-decoration: none;
+}
+li{
+  list-style-type: none;
+  display: inline-flex;
+  padding-left: 14%;
 }
