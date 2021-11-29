@@ -1,6 +1,12 @@
 a{
   text-decoration: none;
+  color: black;
 }
+a:hover{
+color: blanchedalmond;
+
+}
+
 li{
   list-style-type: none;
   display: inline-flex;
