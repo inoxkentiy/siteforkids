@@ -1,10 +1,15 @@
 body {
-    margin     : 0;
-    font-size  : 15px;
-    line-height: 1.6;
-    color      : #333;
-    font-family: 'Comfortaa', cursive;
-    background : url(https://i.pinimg.com/originals/50/83/bc/5083bcfdccd3c9e22f288941d6d74859.jpg) center no-repeat;
+
+    
+        margin     : 0;
+        font-size  : 15px;
+        line-height: 1.6;
+        color      : #333;
+        font-family: 'Comfortaa', cursive;
+       
+        background : url(https://i.pinimg.com/originals/50/83/bc/5083bcfdccd3c9e22f288941d6d74859.jpg) center no-repeat;
+        background-size: cover;
+     
 }
 
 .title {

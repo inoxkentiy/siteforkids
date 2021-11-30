@@ -7,15 +7,16 @@ let solArray2 = JSON.parse(localStorage.getItem("solArray2"))
 
 resultBlock.append(`<div>Количество правильных ответов: ${counter1}</div>`)
 solArray.map(item => {
-  resultBlock.append(`<div>${item}<br></div>`)
+  resultBlock.append(`<div class="colorBlock">${item}<br></div>`)
 })
 
-resultBlock_neprav.append(`<div>Количество неправильных ответов: ${counter2}</div>`)
+resultBlock_neprav.append(`<div class="example">Количество неправильных ответов: ${counter2}</div>`)
 solArray2.map(item => {
-  resultBlock_neprav.append(`<div>${item}<br></div`)
+  resultBlock_neprav.append(`<div class="colorBlock">${item}<br></div`)
 })
 let deleteBtn = document.querySelector("#deleteBtn")
 deleteBtn.addEventListener('click', () => {
   localStorage.clear();
   location.reload()
 })
+
