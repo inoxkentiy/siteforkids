@@ -6,6 +6,7 @@ body {
     background       : url(https://i.pinimg.com/originals/01/13/a8/0113a886d1d3b5dea3c64a96a3b114a4.jpg);
     background-size  : 100%;
     background-repeat: no-repeat;
+    font-family: 'Comfortaa', cursive;
 }
 
 nav {
@@ -25,7 +26,8 @@ nav ul li {
 nav ul li a {
     display        : block;
     text-decoration: none;
-    color          : #aaa;
+    
+    color          : rgb(34, 34, 104);
     font-weight    : 800;
     text-transform : uppercase;
     margin         : 0 10px;

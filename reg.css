@@ -3,8 +3,34 @@ body {
   background-repeat: no-repeat;
   background-size: 100%;
   background-position-x: center;
+  font-family: 'Comfortaa', cursive;
 }
 
+button {
+  display        : inline-block;
+  color          : black;
+  font-size      : 125%;
+  font-weight    : 700;
+  text-decoration: none;
+  user-select    : none;
+  padding        : .25em .5em;
+  outline        : none;
+  border         : 1px solid rgb(250, 172, 17);
+  border-radius  : 7px;
+  background     : rgb(255, 212, 3) linear-gradient(rgb(255, 212, 3), rgb(248, 157, 23));
+  box-shadow     : inset 0 -2px 1px rgba(0, 0, 0, 0), inset 0 1px 2px rgba(0, 0, 0, 0), inset 0 0 0 60px rgba(255, 255, 0, 0);
+  transition     : box-shadow .2s, border-color .2s;
+}
+
+button:hover {
+  box-shadow: inset 0 -1px 1px rgba(0, 0, 0, 0), inset 0 1px 2px rgba(0, 0, 0, 0), inset 0 0 0 60px rgba(255, 255, 0, .5);
+}
+
+button:active {
+  padding     : calc(.25em + 1px) .5em calc(.25em - 1px);
+  border-color: rgba(177, 159, 0, 1);
+  box-shadow  : inset 0 -1px 1px rgba(0, 0, 0, .1), inset 0 1px 2px rgba(0, 0, 0, .3), inset 0 0 0 60px rgba(255, 255, 0, .45);
+}
 *,
 *:before,
 *:after {
@@ -45,7 +71,6 @@ a {
   text-transform: uppercase;
   line-height: 1;
   margin-top: 100px;
-  font-family: Comic Sans MS, Comic Sans, cursive;
 
 }
 
@@ -59,59 +84,224 @@ a {
 
 
 /* header */
-.header {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 1000;
-  background-color: rgb(241, 67, 67);
+nav {
+  width : 100%;
+  margin: 0 auto;
 }
 
-.header_inner {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+nav ul {
+  list-style: none;
+  text-align: center;
 }
 
-.header_logo {
-  font-size: 30px;
-  font-weight: 700;
-  color: #fff;
-}
-
-.nav {
-  font-size: 14px;
-  text-transform: uppercase;
-}
-
-.nav_link {
+nav ul li {
   display: inline-block;
-  vertical-align: top;
-  margin: 0 8px;
-  color: #fff;
-  text-decoration: none;
-  position: relative;
-
 }
 
-.nav_link:after {
-  content: "";
-  display: block;
-  width: 100%;
-  height: 3px;
-  display: none;
+nav ul li a {
+  display        : block;
+  text-decoration: none;
+  
+  color          : rgb(34, 34, 104);
+  font-weight    : 800;
+  text-transform : uppercase;
+  margin         : 0 10px;
+}
 
-  background-color: #fff;
-  position: absolute;
-  top: 100%;
-  left: 0;
+nav ul li a,
+nav ul li a:after,
+nav ul li a:before {
+  transition: all .5s;
+}
+
+nav ul li a:hover {
+  color: #555;
+}
+
+nav.stroke ul li a,
+nav.fill ul li a {
+  position: relative;
+}
+
+nav.stroke ul li a:after,
+nav.fill ul li a:after {
+  position  : absolute;
+  bottom    : 0;
+  left      : 0;
+  right     : 0;
+  margin    : auto;
+  width     : 0%;
+  content   : '.';
+  color     : transparent;
+  background: #333;
+  height    : 1px;
+}
+
+nav.stroke ul li a:hover:after {
+  width: 100%;
+}
+
+nav.fill ul li a {
+  transition: all 2s;
+}
+
+/* By Dominik Biedebach @domobch */
+
+nav.fill ul li a:after {
+  text-align: left;
+  content   : '.';
+  margin    : 0;
+  opacity   : 0;
+}
+
+nav.fill ul li a:hover {
+  color  : #023f1c;
   z-index: 1;
 }
 
+nav.fill ul li a:hover:after {
+  z-index          : -10;
+  animation        : fill 1s forwards;
+  -webkit-animation: fill 1s forwards;
+  -moz-animation   : fill 1s forwards;
+  opacity          : 1;
+}
 
-.nav_link:hover:after {
-  display: block;
+/* Circle */
+nav.circle ul li a {
+  position: relative;
+  overflow: hidden;
+  z-index : 1;
+}
+
+/* By Dominik Biedebach @domobch */
+nav.circle ul li a:after {
+  display      : block;
+  position     : absolute;
+  margin       : 0;
+  top          : 0;
+  bottom       : 0;
+  left         : 0;
+  right        : 0;
+  content      : '.';
+  color        : transparent;
+  width        : 1px;
+  height       : 1px;
+  border-radius: 50%;
+  background   : transparent;
+}
+
+nav.circle ul li a:hover:after {
+  -webkit-animation: circle 1.5s ease-in forwards;
+}
+
+/* SHIFT */
+nav.shift ul li a {
+  position: relative;
+  z-index : 1;
+}
+
+nav.shift ul li a:hover {
+  color: #91640F;
+}
+
+nav.shift ul li a:after {
+  display   : block;
+  position  : absolute;
+  top       : 0;
+  left      : 0;
+  bottom    : 0;
+  right     : 0;
+  margin    : auto;
+  width     : 100%;
+  height    : 1px;
+  content   : '.';
+  color     : transparent;
+  background: #F1C40F;
+  visibility: none;
+  opacity   : 0;
+  z-index   : -1;
+}
+
+nav.shift ul li a:hover:after {
+  opacity   : 1;
+  visibility: visible;
+  height    : 100%;
+}
+
+/* By Dominik Biedebach @domobch */
+
+/* Blend */
+nav.blend ul li a {
+  position     : relative;
+  border-radius: 5px;
+  overflow     : hidden;
+  z-index      : 1;
+}
+
+nav.blend ul li a:hover {
+  color: #fff;
+}
+
+nav.blend ul li a:before,
+nav.blend ul li a:after {
+  position  : absolute;
+  width     : 0px;
+  height    : 100%;
+  top       : 0;
+  bottom    : 0;
+  background: #D35400;
+  transition: all .5s;
+  margin    : auto;
+  content   : '.';
+  color     : transparent;
+  z-index   : -1;
+  opacity   : 0.75;
+}
+
+nav.blend ul li a:before {
+  left: 0;
+}
+
+nav.blend ul li a:after {
+  right: 0;
+}
+
+nav.blend ul li a:hover:after,
+nav.blend ul li a:hover:before {
+  width: 100%;
+}
+
+/* DROWN */
+
+nav.drown ul li a {
+  position: relative;
+  overflow: hidden;
+  z-index : 1;
+}
+
+nav.drown ul li a:hover {
+  color: #fff;
+}
+
+nav.drown ul li a:before {
+  background: #fff;
+  content   : '.';
+  color     : transparent;
+  position  : absolute;
+  width     : 500%;
+  top       : 100px;
+  right     : 300px;
+  height    : 300px;
+  z-index   : -1;
+}
+
+nav.drown ul li a:hover:before {
+  left      : auto;
+  bottom    : auto;
+  right     : -50%;
+  top       : 0;
+  background: #89C52B;
 }
 
 .section>div {
