@@ -17,8 +17,5 @@ solArray2.map(item => {
 let deleteBtn = document.querySelector("#deleteBtn")
 deleteBtn.addEventListener('click', () => {
   localStorage.clear();
-  // localStorage.removeItem("solArray")
-  // localStorage.removeItem("solArray2")
-  // localStorage.removeItem("counter1")
-  // localStorage.removeItem("counter2")
+  location.reload()
 })
